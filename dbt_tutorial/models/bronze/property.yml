@@ -1,6 +1,19 @@
 version: 2
 
 models:
-  - name: bronze_date #  Must match the filename of a model -- including case sensitivity.
-    config: 
-        materialized: view
+  - name: bronze_customer               # must match model file name (bronze_date.sql)
+    config:
+      materialized: table
+      schema: bronze
+      columns:
+        name: customer_code
+        tests:
+            -uniqe
+            -not_null
+
+  - name: bronze_customer              # must match bronze_store.sql
+    columns:
+      - name: GENDER
+        tests:
+          - accepted_values:
+              values: ["M","F","Other"]
