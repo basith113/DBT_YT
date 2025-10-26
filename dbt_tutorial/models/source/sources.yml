@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: source                  # Logical source name
+    database: dbt_tutrial         # Snowflake database
+    schema: PUBLIC                 # Schema
+    description: "Main source tables for the project"
+    tables:
+      - name: fact_sales
+        description: "Fact table for sales"
+      - name: fact_returns
+        description: "Fact table for returns"
+      - name: dim_store
+        description: "Dimension table for store"
+      - name: dim_product
+        description: "Dimension table for product"
+      - name: dim_date
+        description: "Dimension table for date"
+      - name: dim_customer
+        description: "Dimension table for customer"
